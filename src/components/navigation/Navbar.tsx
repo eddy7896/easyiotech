@@ -80,7 +80,9 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg' : 'bg-white/80 dark:bg-transparent backdrop-blur-sm'}`}>
+    <nav className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-300 rounded-xl mx-auto ${isScrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-2xl border border-white/20 dark:border-gray-700/30' : 'bg-white/70 dark:bg-gray-900/60 backdrop-blur-lg shadow-lg border border-white/10 dark:border-gray-700/20'}`}>
+      {/* Decorative elements for glass effect */}
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/30 to-transparent dark:from-white/5 dark:to-transparent pointer-events-none" />
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Logo size="md" />

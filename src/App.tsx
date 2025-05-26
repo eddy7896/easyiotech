@@ -86,7 +86,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <ThemeProvider defaultTheme="dark">
+        <ThemeProvider defaultTheme="light">
           <SupabaseProvider>
             <SupabaseInitializer>
               <AuthProvider>

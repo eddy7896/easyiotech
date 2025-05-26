@@ -16,7 +16,7 @@ const Home = () => {
       <Hero />
       
       {/* Services Section - Showcasing key offerings with modern cards */}
-      <section className="py-24 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-black dark:to-gray-900">
+      <section className="py-16 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-black dark:to-gray-900">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">easyioing businesses to reach their full digital potential</h2>
@@ -50,7 +50,7 @@ const Home = () => {
       </section>
       
       {/* Industries Section - Industries we serve */}
-      <section className="py-24 bg-gray-100 dark:bg-gray-900">
+      <section className="py-16 bg-gray-100 dark:bg-gray-900">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Industries We Serve</h2>
@@ -62,7 +62,7 @@ const Home = () => {
       </section>
       
       {/* Testimonials Section - Social proof */}
-      <section className="py-24 bg-white dark:bg-black">
+      <section className="py-16 bg-white dark:bg-black">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Driving Growth Through Partnerships</h2>
@@ -85,12 +85,12 @@ const Home = () => {
       </section>
       
       {/* Call to Action Section */}
-      <section className="py-24 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-950">
+      <section className="py-16 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-950">
         <CallToAction />
       </section>
       
       {/* Newsletter Section */}
-      <section className="py-24 bg-gray-200 dark:bg-gray-950">
+      <section className="py-16 bg-gray-200 dark:bg-gray-950">
         <div className="container mx-auto px-4 md:px-6">
           <Newsletter />
         </div>
