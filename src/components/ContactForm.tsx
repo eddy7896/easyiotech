@@ -11,6 +11,7 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     company: '',
     message: ''
   });
@@ -35,7 +36,7 @@ const ContactForm = () => {
     
     if (success) {
       setIsSuccess(true);
-      setFormData({ name: '', email: '', company: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', company: '', message: '' });
       setErrors({});
       toast({
         title: "Message Sent!",
@@ -103,17 +104,32 @@ const ContactForm = () => {
           </div>
         </div>
         
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-100 mb-2">
-            Company
-          </label>
-          <Input
-            type="text"
-            value={formData.company}
-            onChange={(e) => setFormData({...formData, company: e.target.value})}
-            className="w-full"
-            disabled={isSubmitting}
-          />
+        <div className="grid md:grid-cols-2 gap-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100 mb-2">
+              Phone Number
+            </label>
+            <Input
+              type="tel"
+              value={formData.phone}
+              onChange={(e) => setFormData({...formData, phone: e.target.value})}
+              placeholder="+1 (555) 123-4567"
+              className="w-full"
+              disabled={isSubmitting}
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100 mb-2">
+              Company
+            </label>
+            <Input
+              type="text"
+              value={formData.company}
+              onChange={(e) => setFormData({...formData, company: e.target.value})}
+              className="w-full"
+              disabled={isSubmitting}
+            />
+          </div>
         </div>
         
         <div>

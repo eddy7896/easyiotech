@@ -8,10 +8,10 @@ const Contact = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-blue-600 to-indigo-700 text-white dark:from-indigo-800 dark:to-gray-900">
+      <section className="py-20 bg-white text-gray-900 dark:bg-gradient-to-b dark:from-indigo-800 dark:to-gray-900 dark:text-white">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Get In <span className="text-amber-300 dark:text-amber-300">Touch</span>
+            Get In <span className="text-blue-600 dark:text-blue-400">Touch</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Ready to start your next project? We'd love to hear from you. 
@@ -95,24 +95,18 @@ const Contact = () => {
       </section>
 
       {/* Modern contact call-to-action section */}
-      <section className="py-16 bg-gradient-to-b from-blue-500 to-indigo-600 dark:from-indigo-700 dark:to-indigo-800 text-white">
+      <section className="py-16 bg-gray-50 dark:bg-gradient-to-b dark:from-indigo-700 dark:to-indigo-800 text-gray-900 dark:text-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <h2 className="text-3xl font-bold mb-6">Ready to transform your digital presence?</h2>
-              <p className="text-lg text-gray-200 mb-8">
+              <p className="text-lg text-black dark:text-gray-200 mb-8">
                 Our team of experts is ready to help you create a powerful digital identity that resonates with your audience.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Button className="bg-white text-indigo-700 hover:bg-gray-100 dark:bg-gray-100 dark:hover:bg-white dark:text-indigo-800 px-6 py-3 rounded-lg font-medium group">
-                  Schedule a Call
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 dark:border-gray-100 dark:text-gray-100 dark:hover:bg-white/10 px-6 py-3 rounded-lg font-medium">
-                  <MessageSquare className="mr-2 h-4 w-4" />
-                  Live Chat
-                </Button>
-              </div>
+              <Button className="bg-white text-indigo-700 hover:bg-gray-100 dark:bg-gray-100 dark:hover:bg-white dark:text-indigo-800 px-6 py-3 rounded-lg font-medium group">
+                Schedule a Call
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
             </div>
             <div className="grid grid-cols-2 gap-6">
               {/* Social proof and connection options */}
@@ -134,27 +128,6 @@ const Contact = () => {
                 <h3 className="text-xl font-semibold text-center mb-2">Quick Response</h3>
                 <p className="text-center text-gray-300">We respond within 24 hours</p>
               </div>
-            </div>
-          </div>
-
-          <div className="mt-12 pt-8 border-t border-white/20 dark:border-white/10">
-            <div className="flex flex-wrap justify-center gap-6">
-              <a href="#" className="flex items-center text-white/80 hover:text-white transition-colors">
-                <Facebook className="h-5 w-5 mr-2" />
-                <span>Facebook</span>
-              </a>
-              <a href="#" className="flex items-center text-white/80 hover:text-white transition-colors">
-                <Twitter className="h-5 w-5 mr-2" />
-                <span>Twitter</span>
-              </a>
-              <a href="#" className="flex items-center text-white/80 hover:text-white transition-colors">
-                <Instagram className="h-5 w-5 mr-2" />
-                <span>Instagram</span>
-              </a>
-              <a href="#" className="flex items-center text-white/80 hover:text-white transition-colors">
-                <Linkedin className="h-5 w-5 mr-2" />
-                <span>LinkedIn</span>
-              </a>
             </div>
           </div>
         </div>
