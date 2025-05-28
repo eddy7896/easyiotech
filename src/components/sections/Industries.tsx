@@ -114,7 +114,7 @@ const Industries = () => {
       className="w-full overflow-hidden"
       ref={containerRef}
     >
-      {/* Row selector */}
+      {/* Row selector - commented out for now
       <div className="flex justify-center gap-4 mb-6">
         <Button 
           variant="ghost"
@@ -143,8 +143,9 @@ const Industries = () => {
           {isPaused ? "Play" : "Pause"}
         </Button>
       </div>
+      */}
 
-      {/* Control buttons */}
+      {/* Control buttons - commented out for now
       <div className="relative">
         <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
           <Button 
@@ -169,94 +170,95 @@ const Industries = () => {
             <ChevronRight className="h-5 w-5" />
           </Button>
         </div>
+      </div>
+      */}
 
         {/* First row */}
-        <div className={`overflow-hidden ${activeRow === 0 ? 'block' : 'hidden'}`}>
-          <motion.div 
-            animate={controls}
-            className="flex gap-4 py-4 min-w-max"
-          >
-            {/* First set */}
-            {firstRowIndustries.map((industry, index) => (
-              <motion.div
-                key={`first-${index}`}
-                variants={itemVariants}
-                className="bg-gray-100 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-gray-200 dark:hover:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:border-purple-500/50 rounded-xl p-4 flex flex-col items-center justify-center text-center transition-all duration-300 hover:transform hover:scale-105 group shadow-sm dark:shadow-none w-[160px] h-[120px] flex-shrink-0"
-                whileHover={{ y: -5 }}
-                tabIndex={0}
-              >
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-600/10 to-blue-600/10 dark:from-purple-600/20 dark:to-blue-600/20 group-hover:from-purple-600/20 group-hover:to-blue-600/20 dark:group-hover:from-purple-600/30 dark:group-hover:to-blue-600/30 flex items-center justify-center mb-3 transition-all duration-300">
-                  <industry.icon className="h-6 w-6 text-gray-500 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-white transition-colors duration-300" />
-                </div>
-                <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
-                  {industry.name}
-                </h3>
-              </motion.div>
-            ))}
-            
-            {/* Duplicate set for infinite scroll */}
-            {firstRowIndustries.map((industry, index) => (
-              <motion.div
-                key={`first-dup-${index}`}
-                variants={itemVariants}
-                className="bg-gray-100 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-gray-200 dark:hover:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:border-purple-500/50 rounded-xl p-4 flex flex-col items-center justify-center text-center transition-all duration-300 hover:transform hover:scale-105 group shadow-sm dark:shadow-none w-[160px] h-[120px] flex-shrink-0"
-                whileHover={{ y: -5 }}
-                tabIndex={0}
-              >
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-600/10 to-blue-600/10 dark:from-purple-600/20 dark:to-blue-600/20 group-hover:from-purple-600/20 group-hover:to-blue-600/20 dark:group-hover:from-purple-600/30 dark:group-hover:to-blue-600/30 flex items-center justify-center mb-3 transition-all duration-300">
-                  <industry.icon className="h-6 w-6 text-gray-500 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-white transition-colors duration-300" />
-                </div>
-                <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
-                  {industry.name}
-                </h3>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+      <div className={`overflow-hidden ${activeRow === 0 ? 'block' : 'hidden'}`}>
+        <motion.div 
+          animate={controls}
+          className="flex gap-4 py-4 min-w-max"
+        >
+          {/* First set */}
+          {firstRowIndustries.map((industry, index) => (
+            <motion.div
+              key={`first-${index}`}
+              variants={itemVariants}
+              className="bg-gray-100 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-gray-200 dark:hover:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:border-purple-500/50 rounded-xl p-4 flex flex-col items-center justify-center text-center transition-all duration-300 hover:transform hover:scale-105 group shadow-sm dark:shadow-none w-[160px] h-[120px] flex-shrink-0"
+              whileHover={{ y: -5 }}
+              tabIndex={0}
+            >
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-600/10 to-blue-600/10 dark:from-purple-600/20 dark:to-blue-600/20 group-hover:from-purple-600/20 group-hover:to-blue-600/20 dark:group-hover:from-purple-600/30 dark:group-hover:to-blue-600/30 flex items-center justify-center mb-3 transition-all duration-300">
+                <industry.icon className="h-6 w-6 text-gray-500 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-white transition-colors duration-300" />
+              </div>
+              <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
+                {industry.name}
+              </h3>
+            </motion.div>
+          ))}
+          
+          {/* Duplicate set for infinite scroll */}
+          {firstRowIndustries.map((industry, index) => (
+            <motion.div
+              key={`first-dup-${index}`}
+              variants={itemVariants}
+              className="bg-gray-100 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-gray-200 dark:hover:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:border-purple-500/50 rounded-xl p-4 flex flex-col items-center justify-center text-center transition-all duration-300 hover:transform hover:scale-105 group shadow-sm dark:shadow-none w-[160px] h-[120px] flex-shrink-0"
+              whileHover={{ y: -5 }}
+              tabIndex={0}
+            >
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-600/10 to-blue-600/10 dark:from-purple-600/20 dark:to-blue-600/20 group-hover:from-purple-600/20 group-hover:to-blue-600/20 dark:group-hover:from-purple-600/30 dark:group-hover:to-blue-600/30 flex items-center justify-center mb-3 transition-all duration-300">
+                <industry.icon className="h-6 w-6 text-gray-500 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-white transition-colors duration-300" />
+              </div>
+              <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
+                {industry.name}
+              </h3>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
 
-        {/* Second row */}
-        <div className={`overflow-hidden ${activeRow === 1 ? 'block' : 'hidden'}`}>
-          <motion.div 
-            animate={controls}
-            className="flex gap-4 py-4 min-w-max"
-          >
-            {/* First set */}
-            {secondRowIndustries.map((industry, index) => (
-              <motion.div
-                key={`second-${index}`}
-                variants={itemVariants}
-                className="bg-gray-100 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-gray-200 dark:hover:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:border-purple-500/50 rounded-xl p-4 flex flex-col items-center justify-center text-center transition-all duration-300 hover:transform hover:scale-105 group shadow-sm dark:shadow-none w-[160px] h-[120px] flex-shrink-0"
-                whileHover={{ y: -5 }}
-                tabIndex={0}
-              >
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-600/10 to-blue-600/10 dark:from-purple-600/20 dark:to-blue-600/20 group-hover:from-purple-600/20 group-hover:to-blue-600/20 dark:group-hover:from-purple-600/30 dark:group-hover:to-blue-600/30 flex items-center justify-center mb-3 transition-all duration-300">
-                  <industry.icon className="h-6 w-6 text-gray-500 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-white transition-colors duration-300" />
-                </div>
-                <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
-                  {industry.name}
-                </h3>
-              </motion.div>
-            ))}
-            
-            {/* Duplicate set for infinite scroll */}
-            {secondRowIndustries.map((industry, index) => (
-              <motion.div
-                key={`second-dup-${index}`}
-                variants={itemVariants}
-                className="bg-gray-100 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-gray-200 dark:hover:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:border-purple-500/50 rounded-xl p-4 flex flex-col items-center justify-center text-center transition-all duration-300 hover:transform hover:scale-105 group shadow-sm dark:shadow-none w-[160px] h-[120px] flex-shrink-0"
-                whileHover={{ y: -5 }}
-                tabIndex={0}
-              >
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-600/10 to-blue-600/10 dark:from-purple-600/20 dark:to-blue-600/20 group-hover:from-purple-600/20 group-hover:to-blue-600/20 dark:group-hover:from-purple-600/30 dark:group-hover:to-blue-600/30 flex items-center justify-center mb-3 transition-all duration-300">
-                  <industry.icon className="h-6 w-6 text-gray-500 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-white transition-colors duration-300" />
-                </div>
-                <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
-                  {industry.name}
-                </h3>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+      {/* Second row */}
+      <div className={`overflow-hidden ${activeRow === 1 ? 'block' : 'hidden'}`}>
+        <motion.div 
+          animate={controls}
+          className="flex gap-4 py-4 min-w-max"
+        >
+          {/* First set */}
+          {secondRowIndustries.map((industry, index) => (
+            <motion.div
+              key={`second-${index}`}
+              variants={itemVariants}
+              className="bg-gray-100 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-gray-200 dark:hover:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:border-purple-500/50 rounded-xl p-4 flex flex-col items-center justify-center text-center transition-all duration-300 hover:transform hover:scale-105 group shadow-sm dark:shadow-none w-[160px] h-[120px] flex-shrink-0"
+              whileHover={{ y: -5 }}
+              tabIndex={0}
+            >
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-600/10 to-blue-600/10 dark:from-purple-600/20 dark:to-blue-600/20 group-hover:from-purple-600/20 group-hover:to-blue-600/20 dark:group-hover:from-purple-600/30 dark:group-hover:to-blue-600/30 flex items-center justify-center mb-3 transition-all duration-300">
+                <industry.icon className="h-6 w-6 text-gray-500 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-white transition-colors duration-300" />
+              </div>
+              <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
+                {industry.name}
+              </h3>
+            </motion.div>
+          ))}
+          
+          {/* Duplicate set for infinite scroll */}
+          {secondRowIndustries.map((industry, index) => (
+            <motion.div
+              key={`second-dup-${index}`}
+              variants={itemVariants}
+              className="bg-gray-100 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-gray-200 dark:hover:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:border-purple-500/50 rounded-xl p-4 flex flex-col items-center justify-center text-center transition-all duration-300 hover:transform hover:scale-105 group shadow-sm dark:shadow-none w-[160px] h-[120px] flex-shrink-0"
+              whileHover={{ y: -5 }}
+              tabIndex={0}
+            >
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-600/10 to-blue-600/10 dark:from-purple-600/20 dark:to-blue-600/20 group-hover:from-purple-600/20 group-hover:to-blue-600/20 dark:group-hover:from-purple-600/30 dark:group-hover:to-blue-600/30 flex items-center justify-center mb-3 transition-all duration-300">
+                <industry.icon className="h-6 w-6 text-gray-500 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-white transition-colors duration-300" />
+              </div>
+              <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
+                {industry.name}
+              </h3>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
       
       {/* Bottom accent */}

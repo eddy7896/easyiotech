@@ -10,12 +10,12 @@ declare module 'react' {
   export function useState<T>(initialState: T | (() => T)): [T, React.Dispatch<React.SetStateAction<T>>];
   export function useEffect(effect: React.EffectCallback, deps?: React.DependencyList): void;
   export function useContext<T>(context: React.Context<T>): T;
-  export function useReducer<R extends React.Reducer<any, any>, I>(
+  export function useReducer<R extends React.Reducer<unknown, any>, I>(
     reducer: R,
     initialArg: I,
     init?: (arg: I) => React.ReducerState<R>
   ): [React.ReducerState<R>, React.Dispatch<React.ReducerAction<R>>];
-  export function useCallback<T extends (...args: any[]) => any>(
+  export function useCallback<T extends (...args: unknown[]) => unknown>(
     callback: T,
     deps: React.DependencyList
   ): T;
@@ -31,7 +31,7 @@ declare module 'react' {
   
   export interface SyntheticEvent<T = Element, E = Event> extends BaseSyntheticEvent<E, EventTarget & T, EventTarget> {}
   
-  export interface BaseSyntheticEvent<E = object, C = any, T = any> {
+  export interface BaseSyntheticEvent<E = Event, C = Element, T = Element> {
     nativeEvent: E;
     currentTarget: C;
     target: T;
@@ -52,21 +52,21 @@ declare module 'react' {
   // Component types
   export type FC<P = {}> = FunctionComponent<P>;
   
-  export interface FunctionComponent<P = {}> {
-    (props: P, context?: any): ReactElement<any, any> | null;
+  export interface FunctionComponent<P = Record<string, unknown>> {
+    (props: P, context?: unknown): ReactElement | null;
     propTypes?: WeakValidationMap<P>;
-    contextTypes?: ValidationMap<any>;
+    contextTypes?: ValidationMap<unknown>;
     defaultProps?: Partial<P>;
     displayName?: string;
   }
   
-  export type ReactElement<P = any, T extends string | JSXElementConstructor<any> = string | JSXElementConstructor<any>> = {
+  export type ReactElement<P = unknown, T extends string | JSXElementConstructor<unknown> = string | JSXElementConstructor<unknown>> = {
     type: T;
     props: P;
     key: Key | null;
   };
   
-  export type JSXElementConstructor<P> = ((props: P) => ReactElement | null) | (new (props: P) => Component<P, any>);
+  export type JSXElementConstructor<P> = ((props: P) => ReactElement | null) | (new (props: P) => Component<P, unknown>);
   
   export type Key = string | number;
   
@@ -83,7 +83,7 @@ declare module 'react' {
   };
   
   export type Validator<T> = {
-    (props: { [key: string]: any }, propName: string, componentName: string, location: string, propFullName: string): Error | null;
-    [key: string]: any;
+    (props: { [key: string]: unknown }, propName: string, componentName: string, location: string, propFullName: string): Error | null;
+    [key: string]: unknown;
   };
 }

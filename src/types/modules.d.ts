@@ -6,7 +6,7 @@ declare module 'react-router-dom' {
 
   export interface NavigateOptions {
     replace?: boolean;
-    state?: any;
+    state?: unknown;
   }
 
   export interface NavigateFunction {
@@ -22,6 +22,7 @@ declare module 'react-router-dom' {
   export const Route: React.FC<{ 
     path: string;
     element: React.ReactNode;
+    index?: boolean;
   }>;
   export const Link: React.FC<{
     to: string;
