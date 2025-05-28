@@ -63,7 +63,6 @@ export const Navbar = () => {
         { path: '/services/app-development', label: 'Mobile Application' },
       ] 
     },
-    { path: '/about', label: 'About' },
     { path: '/portfolio', label: 'Our Work' },
     { path: '/contact', label: 'Contact' },
   ];

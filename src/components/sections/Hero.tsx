@@ -316,15 +316,15 @@ const Hero = () => {
                         .typeString('Logistics.')
                         .pauseFor(1000)
                         .deleteAll(50)
-                        .typeString('Logistics.')
+                        .typeString('Ideas.')
                         .pauseFor(1000)
                         .deleteAll(50)
                         .start();
                     }}
                     options={{
                       cursor: '_',
-                      wrapperClassName: 'text-transparent bg-clip-text bg-black dark:bg-gradient-to-r dark:from-blue-400 dark:to-cyan-300 font-["montserrat","monospace"]',
-                      cursorClassName: 'blinking-cursor text-transparent bg-clip-text bg-black dark:bg-gradient-to-r dark:from-blue-400 dark:to-cyan-300',
+                      wrapperClassName: 'text-transparent bg-clip-text bg-black dark:bg-gradient-to-r dark:text-white font-["montserrat","monospace"]',
+                      cursorClassName: 'blinking-cursor text-transparent bg-clip-text bg-black dark:bg-gradient-to-r dark:text-white',
                       autoStart: true,
                       loop: true,
                       delay: 50,
@@ -391,7 +391,7 @@ const Hero = () => {
                     <span className="relative z-10">
                       Our Work
                     </span>
-                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                    <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                   </Button>
                 </motion.div>
               </Link>

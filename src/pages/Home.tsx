@@ -19,7 +19,7 @@ const Home = () => {
       <section className="py-16 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-black dark:to-gray-900">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">easyioing businesses to reach their full digital potential</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Simflifying Your Way to a Streamlined System</h2>
             <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto"></div>
           </div>
           <Services />
@@ -30,8 +30,8 @@ const Home = () => {
       <section className="py-24 bg-gradient-to-b from-gray-200 to-white dark:from-gray-900 dark:to-black">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">We create digital strategy experiences based on business analysis</h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto"></div>
+            {/* <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">We create digital strategy experiences based on business analysis</h2> */}
+            {/* <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto"></div> */}
           </div>
           <About />
         </div>

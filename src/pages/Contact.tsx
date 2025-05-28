@@ -11,9 +11,9 @@ const Contact = () => {
       <section className="py-20 bg-white text-gray-900 dark:bg-gradient-to-b dark:from-indigo-800 dark:to-gray-900 dark:text-white">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Get In <span className="text-blue-600 dark:text-blue-400">Touch</span>
+            Get In <span className="text-blue-600 dark:text-white">Touch</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-black dark:text-white max-w-3xl mx-auto">
             Ready to start your next project? We'd love to hear from you. 
             Let's create something amazing together.
           </p>
@@ -73,12 +73,13 @@ const Contact = () => {
               {/* Google Maps Embed */}
               <div className="h-64 rounded-lg overflow-hidden shadow-md">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215573174316!2d-73.98784542426508!3d40.75751157138396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1657867372607!5m2!1sen!2sus" 
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d542.5069957255052!2d74.46848455928685!3d34.284999057388426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1748450058944!5m2!1sen!2sin" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
                   allowFullScreen={true} 
                   loading="lazy" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Google Maps Location"
                   className="grayscale dark:invert-[0.85] dark:contrast-125 dark:brightness-90"

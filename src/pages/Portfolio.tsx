@@ -54,12 +54,12 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-blue-600 to-indigo-700 text-white dark:from-indigo-800 dark:to-gray-900">
+      <section className="py-20 bg-white dark:bg-gradient-to-b dark:from-indigo-800 dark:to-gray-900 text-gray-900 dark:text-white">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Our <span className="text-amber-300 dark:text-amber-300">Portfolio</span>
+            Our <span className="text-blue-600 dark:text-white">Portfolio</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-black dark:text-white max-w-3xl mx-auto">
             Explore our latest work and see how we've helped businesses 
             achieve their digital goals.
           </p>

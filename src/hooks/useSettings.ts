@@ -11,7 +11,7 @@ interface UseSettingsReturn {
   settings: SiteSettings | null;
   loading: boolean;
   error: Error | null;
-  fetchSettings: () => Promise<void>;
+  fetchSettings: () => Promise<SiteSettings | null>;
   updateSettings: (data: SiteSettingsUpdate) => Promise<{ success: boolean; error: Error | null }>;
   resetSettings: () => Promise<{ success: boolean; error: Error | null }>;
 }
@@ -55,7 +55,7 @@ export const useSettings = (): UseSettingsReturn => {
   }, []);
 
   // Helper function to create default settings if none exist
-  const createDefaultSettings = async () => {
+  const createDefaultSettings = async (): Promise<SiteSettings> => {
     try {
       const defaultSettings = {
         site_name: 'Easyio Technologies',
@@ -89,7 +89,7 @@ export const useSettings = (): UseSettingsReturn => {
     }
   };
 
-  const updateSettings = useCallback(async (data: SiteSettingsUpdate) => {
+  const updateSettings = useCallback(async (data: SiteSettingsUpdate): Promise<{ success: boolean; error: Error | null }> => {
     try {
       setLoading(true);
       setError(null);
@@ -140,7 +140,7 @@ export const useSettings = (): UseSettingsReturn => {
     }
   }, [settings]);
 
-  const resetSettings = useCallback(async () => {
+  const resetSettings = useCallback(async (): Promise<{ success: boolean; error: Error | null }> => {
     try {
       setLoading(true);
       setError(null);
