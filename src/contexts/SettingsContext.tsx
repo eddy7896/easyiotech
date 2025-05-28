@@ -1,5 +1,4 @@
-import * as React from 'react';
-const { createContext, useContext, useState, useEffect } = React;
+import { createContext, useContext, useState, useEffect } from 'react';
 import { useSettings, type SiteSettings } from '@/hooks/useSettings';
 
 interface SettingsContextType {
@@ -46,7 +45,7 @@ export const useWebsiteSettings = () => {
 // Component that applies site colors from settings to CSS variables
 export const SettingsStyleProvider = () => {
   const { settings } = useWebsiteSettings();
-  
+
   useEffect(() => {
     if (settings) {
       // Set CSS variables for colors
@@ -58,7 +57,7 @@ export const SettingsStyleProvider = () => {
       }
     }
   }, [settings]);
-  
+
   // This component doesn't render anything visible
   return null;
 };
@@ -66,50 +65,106 @@ export const SettingsStyleProvider = () => {
 // Component to add header/footer scripts from settings
 export const SettingsScriptInjector = () => {
   const { settings } = useWebsiteSettings();
-  
+
   useEffect(() => {
     if (settings) {
       // Add header scripts
       if (settings.header_scripts) {
-        const headerScript = document.createElement('script');
-        headerScript.innerHTML = settings.header_scripts;
-        headerScript.id = 'settings-header-script';
-        
-        // Remove any existing script first
-        const existingScript = document.getElementById('settings-header-script');
-        if (existingScript) {
-          existingScript.remove();
+        // Remove any existing header scripts first
+        const existingHeaderContainer = document.getElementById('settings-header-scripts');
+        if (existingHeaderContainer) {
+          existingHeaderContainer.remove();
         }
-        
-        document.head.appendChild(headerScript);
+
+        // Create a container div to hold the scripts
+        const headerContainer = document.createElement('div');
+        headerContainer.id = 'settings-header-scripts';
+        headerContainer.style.display = 'none'; // Hide the container
+
+        try {
+          // Set the HTML content which may contain script tags
+          headerContainer.innerHTML = settings.header_scripts;
+          document.head.appendChild(headerContainer);
+
+          // Execute any script tags that were added
+          const scripts = headerContainer.querySelectorAll('script');
+          scripts.forEach((script) => {
+            const newScript = document.createElement('script');
+
+            // Copy attributes
+            Array.from(script.attributes).forEach((attr) => {
+              newScript.setAttribute(attr.name, attr.value);
+            });
+
+            // Copy content
+            if (script.src) {
+              newScript.src = script.src;
+            } else {
+              newScript.textContent = script.textContent;
+            }
+
+            // Replace the old script with the new one to execute it
+            script.parentNode?.replaceChild(newScript, script);
+          });
+        } catch (error) {
+          console.error('Error injecting header scripts:', error);
+        }
       }
-      
+
       // Add footer scripts
       if (settings.footer_scripts) {
-        const footerScript = document.createElement('script');
-        footerScript.innerHTML = settings.footer_scripts;
-        footerScript.id = 'settings-footer-script';
-        
-        // Remove any existing script first
-        const existingScript = document.getElementById('settings-footer-script');
-        if (existingScript) {
-          existingScript.remove();
+        // Remove any existing footer scripts first
+        const existingFooterContainer = document.getElementById('settings-footer-scripts');
+        if (existingFooterContainer) {
+          existingFooterContainer.remove();
         }
-        
-        document.body.appendChild(footerScript);
+
+        // Create a container div to hold the scripts
+        const footerContainer = document.createElement('div');
+        footerContainer.id = 'settings-footer-scripts';
+        footerContainer.style.display = 'none'; // Hide the container
+
+        try {
+          // Set the HTML content which may contain script tags
+          footerContainer.innerHTML = settings.footer_scripts;
+          document.body.appendChild(footerContainer);
+
+          // Execute any script tags that were added
+          const scripts = footerContainer.querySelectorAll('script');
+          scripts.forEach((script) => {
+            const newScript = document.createElement('script');
+
+            // Copy attributes
+            Array.from(script.attributes).forEach((attr) => {
+              newScript.setAttribute(attr.name, attr.value);
+            });
+
+            // Copy content
+            if (script.src) {
+              newScript.src = script.src;
+            } else {
+              newScript.textContent = script.textContent;
+            }
+
+            // Replace the old script with the new one to execute it
+            script.parentNode?.replaceChild(newScript, script);
+          });
+        } catch (error) {
+          console.error('Error injecting footer scripts:', error);
+        }
       }
     }
-    
+
     // Cleanup function
     return () => {
-      const headerScript = document.getElementById('settings-header-script');
-      const footerScript = document.getElementById('settings-footer-script');
-      
-      if (headerScript) headerScript.remove();
-      if (footerScript) footerScript.remove();
+      const headerContainer = document.getElementById('settings-header-scripts');
+      const footerContainer = document.getElementById('settings-footer-scripts');
+
+      if (headerContainer) headerContainer.remove();
+      if (footerContainer) footerContainer.remove();
     };
   }, [settings]);
-  
+
   // This component doesn't render anything visible
   return null;
 };
@@ -117,7 +172,7 @@ export const SettingsScriptInjector = () => {
 // Component that shows maintenance mode when enabled
 export const MaintenanceMode = ({ children }: { children: React.ReactNode }) => {
   const { settings, loading } = useWebsiteSettings();
-  
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -125,7 +180,7 @@ export const MaintenanceMode = ({ children }: { children: React.ReactNode }) => 
       </div>
     );
   }
-  
+
   if (settings?.is_maintenance_mode) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -138,6 +193,6 @@ export const MaintenanceMode = ({ children }: { children: React.ReactNode }) => 
       </div>
     );
   }
-  
+
   return <>{children}</>;
 };
